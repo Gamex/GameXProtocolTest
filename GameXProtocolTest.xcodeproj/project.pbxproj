@@ -19,6 +19,7 @@
 		545EC65318437C1500E64EDD /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545EC65218437C1500E64EDD /* CoreServices.framework */; };
 		5476AFB51843527B00BB256D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5476AFB41843527B00BB256D /* main.cpp */; };
 		5476AFB71843527B00BB256D /* GameXProtocolTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5476AFB61843527B00BB256D /* GameXProtocolTest.1 */; };
+		54E5835D1843A83000CE9FE1 /* CCPomelo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54E5835B1843A83000CE9FE1 /* CCPomelo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,8 @@
 		5476AFB11843527B00BB256D /* GameXProtocolTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GameXProtocolTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5476AFB41843527B00BB256D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5476AFB61843527B00BB256D /* GameXProtocolTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = GameXProtocolTest.1; sourceTree = "<group>"; };
+		54E5835B1843A83000CE9FE1 /* CCPomelo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCPomelo.cpp; sourceTree = "<group>"; };
+		54E5835C1843A83000CE9FE1 /* CCPomelo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPomelo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,9 @@
 		5476AFB31843527B00BB256D /* GameXProtocolTest */ = {
 			isa = PBXGroup;
 			children = (
+				5484FB2E1844C98400D0D797 /* TEST */,
+				54E5835B1843A83000CE9FE1 /* CCPomelo.cpp */,
+				54E5835C1843A83000CE9FE1 /* CCPomelo.h */,
 				545EC6451843773200E64EDD /* CSingleton.cpp */,
 				545EC6461843773200E64EDD /* CSingleton.h */,
 				5476AFB41843527B00BB256D /* main.cpp */,
@@ -111,12 +117,19 @@
 				5458BF4C18436DF0007ED643 /* CTestManager.h */,
 				5458BF5218436EC0007ED643 /* ITestCase.cpp */,
 				5458BF5318436EC0007ED643 /* ITestCase.h */,
-				5458BF5518436FAD007ED643 /* CTestLogin.cpp */,
-				5458BF5618436FAD007ED643 /* CTestLogin.h */,
 				5458BF5818437024007ED643 /* CPomeloTestBase.cpp */,
 				5458BF5918437024007ED643 /* CPomeloTestBase.h */,
 			);
 			path = GameXProtocolTest;
+			sourceTree = "<group>";
+		};
+		5484FB2E1844C98400D0D797 /* TEST */ = {
+			isa = PBXGroup;
+			children = (
+				5458BF5518436FAD007ED643 /* CTestLogin.cpp */,
+				5458BF5618436FAD007ED643 /* CTestLogin.h */,
+			);
+			name = TEST;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +189,7 @@
 				5458BF5718436FAD007ED643 /* CTestLogin.cpp in Sources */,
 				5458BF5A18437024007ED643 /* CPomeloTestBase.cpp in Sources */,
 				545EC6471843773200E64EDD /* CSingleton.cpp in Sources */,
+				54E5835D1843A83000CE9FE1 /* CCPomelo.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

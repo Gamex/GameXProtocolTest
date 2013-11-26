@@ -17,7 +17,6 @@
 #include <string>
 
 
-
 using namespace std;
 
 class CPomeloTestBase
@@ -27,8 +26,8 @@ public:
     virtual bool onEnter() override;
     virtual bool onExit() override;
     
+    virtual void update() override;
 protected:
-    pc_client_t *client = nullptr;
     string m_addr = "127.0.0.1";
     int m_port = 3017;
 };
