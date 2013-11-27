@@ -16,14 +16,15 @@ using namespace std;
 
 
 #define ADD_CASE(__CLASS_NAME__) \
-class __addCase\
+class __addCase##__CLASS_NAME__\
 {\
     public:\
-    __addCase()\
+    __addCase##__CLASS_NAME__()\
     {\
         TEST_MGR->addCase(new __CLASS_NAME__);\
     }\
-} ____add_case;
+};\
+static __addCase##__CLASS_NAME__ ____add_case;
 
 
 class ITestCase;

@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5456A8CB184611E600F44775 /* CTestConnectorLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5456A8C9184611E600F44775 /* CTestConnectorLogin.cpp */; };
+		5456A8CF1846123D00F44775 /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5456A8CC1846123D00F44775 /* libjansson.a */; };
+		5456A8D01846123D00F44775 /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5456A8CD1846123D00F44775 /* libpomelo.a */; };
+		5456A8D11846123D00F44775 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5456A8CE1846123D00F44775 /* libuv.a */; };
 		5458BF4D18436DF0007ED643 /* CTestManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458BF4B18436DF0007ED643 /* CTestManager.cpp */; };
 		5458BF5418436EC0007ED643 /* ITestCase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458BF5218436EC0007ED643 /* ITestCase.cpp */; };
 		5458BF5718436FAD007ED643 /* CTestLogin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458BF5518436FAD007ED643 /* CTestLogin.cpp */; };
 		5458BF5A18437024007ED643 /* CPomeloTestBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5458BF5818437024007ED643 /* CPomeloTestBase.cpp */; };
-		545EC642184376CE00E64EDD /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 545EC63F184376CE00E64EDD /* libjansson.a */; };
-		545EC643184376CE00E64EDD /* libpomelo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 545EC640184376CE00E64EDD /* libpomelo.a */; };
-		545EC644184376CE00E64EDD /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 545EC641184376CE00E64EDD /* libuv.a */; };
 		545EC6471843773200E64EDD /* CSingleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 545EC6451843773200E64EDD /* CSingleton.cpp */; };
 		545EC65118437BF000E64EDD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545EC65018437BF000E64EDD /* CoreFoundation.framework */; };
 		545EC65318437C1500E64EDD /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545EC65218437C1500E64EDD /* CoreServices.framework */; };
@@ -36,6 +37,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5456A8C9184611E600F44775 /* CTestConnectorLogin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CTestConnectorLogin.cpp; sourceTree = "<group>"; };
+		5456A8CA184611E600F44775 /* CTestConnectorLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTestConnectorLogin.h; sourceTree = "<group>"; };
+		5456A8CC1846123D00F44775 /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = libpomelo/lib/libjansson.a; sourceTree = "<group>"; };
+		5456A8CD1846123D00F44775 /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = libpomelo/lib/libpomelo.a; sourceTree = "<group>"; };
+		5456A8CE1846123D00F44775 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = libpomelo/lib/libuv.a; sourceTree = "<group>"; };
 		5458BF4B18436DF0007ED643 /* CTestManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CTestManager.cpp; sourceTree = "<group>"; };
 		5458BF4C18436DF0007ED643 /* CTestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTestManager.h; sourceTree = "<group>"; };
 		5458BF5218436EC0007ED643 /* ITestCase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ITestCase.cpp; sourceTree = "<group>"; };
@@ -44,9 +50,6 @@
 		5458BF5618436FAD007ED643 /* CTestLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTestLogin.h; sourceTree = "<group>"; };
 		5458BF5818437024007ED643 /* CPomeloTestBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CPomeloTestBase.cpp; sourceTree = "<group>"; };
 		5458BF5918437024007ED643 /* CPomeloTestBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPomeloTestBase.h; sourceTree = "<group>"; };
-		545EC63F184376CE00E64EDD /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = libpomelo/lib/libjansson.a; sourceTree = "<group>"; };
-		545EC640184376CE00E64EDD /* libpomelo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpomelo.a; path = libpomelo/lib/libpomelo.a; sourceTree = "<group>"; };
-		545EC641184376CE00E64EDD /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = libpomelo/lib/libuv.a; sourceTree = "<group>"; };
 		545EC6451843773200E64EDD /* CSingleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CSingleton.cpp; sourceTree = "<group>"; };
 		545EC6461843773200E64EDD /* CSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSingleton.h; sourceTree = "<group>"; };
 		545EC65018437BF000E64EDD /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -65,9 +68,9 @@
 			files = (
 				545EC65318437C1500E64EDD /* CoreServices.framework in Frameworks */,
 				545EC65118437BF000E64EDD /* CoreFoundation.framework in Frameworks */,
-				545EC642184376CE00E64EDD /* libjansson.a in Frameworks */,
-				545EC643184376CE00E64EDD /* libpomelo.a in Frameworks */,
-				545EC644184376CE00E64EDD /* libuv.a in Frameworks */,
+				5456A8CF1846123D00F44775 /* libjansson.a in Frameworks */,
+				5456A8D01846123D00F44775 /* libpomelo.a in Frameworks */,
+				5456A8D11846123D00F44775 /* libuv.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,11 +80,11 @@
 		545EC65418437C1E00E64EDD /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				5456A8CC1846123D00F44775 /* libjansson.a */,
+				5456A8CD1846123D00F44775 /* libpomelo.a */,
+				5456A8CE1846123D00F44775 /* libuv.a */,
 				545EC65218437C1500E64EDD /* CoreServices.framework */,
 				545EC65018437BF000E64EDD /* CoreFoundation.framework */,
-				545EC63F184376CE00E64EDD /* libjansson.a */,
-				545EC640184376CE00E64EDD /* libpomelo.a */,
-				545EC641184376CE00E64EDD /* libuv.a */,
 			);
 			name = libs;
 			sourceTree = "<group>";
@@ -126,6 +129,8 @@
 		5484FB2E1844C98400D0D797 /* TEST */ = {
 			isa = PBXGroup;
 			children = (
+				5456A8C9184611E600F44775 /* CTestConnectorLogin.cpp */,
+				5456A8CA184611E600F44775 /* CTestConnectorLogin.h */,
 				5458BF5518436FAD007ED643 /* CTestLogin.cpp */,
 				5458BF5618436FAD007ED643 /* CTestLogin.h */,
 			);
@@ -190,6 +195,7 @@
 				5458BF5A18437024007ED643 /* CPomeloTestBase.cpp in Sources */,
 				545EC6471843773200E64EDD /* CSingleton.cpp in Sources */,
 				54E5835D1843A83000CE9FE1 /* CCPomelo.cpp in Sources */,
+				5456A8CB184611E600F44775 /* CTestConnectorLogin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,8 +277,6 @@
 			buildSettings = {
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../libpomelo/lib\"",
-					"\"$(SRCROOT)/../../cocos2d-x/libs\"",
 					"\"$(SRCROOT)/libpomelo/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,8 +288,6 @@
 			buildSettings = {
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../libpomelo/lib\"",
-					"\"$(SRCROOT)/../../cocos2d-x/libs\"",
 					"\"$(SRCROOT)/libpomelo/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

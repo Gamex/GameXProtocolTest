@@ -20,7 +20,7 @@ bool CTestLogin::onEnter()
     addTask([&](void)
             {
                 setTaskName("prepare test");
-                const char *route = "gate.gateHandler.queryEntry";
+                const char *route = "gate.gateHandler.queryConnectorEntry";
                 json_t *msg = json_object();
                 json_object_set(msg, "userName", json_string("autoTest"));
                 json_object_set(msg, "password", json_string("at123"));
@@ -58,7 +58,7 @@ bool CTestLogin::onEnter()
     addTask([&](void)
             {
                 setTaskName("login ok");
-                const char *route = "gate.gateHandler.queryEntry";
+                const char *route = "gate.gateHandler.queryConnectorEntry";
                 json_t *msg = json_object();
                 json_object_set(msg, "userName", json_string("test1"));
                 json_object_set(msg, "password", json_string("123"));
@@ -102,7 +102,7 @@ bool CTestLogin::onEnter()
     addTask([&](void)
             {
                 setTaskName("login error username");
-                const char *route = "gate.gateHandler.queryEntry";
+                const char *route = "gate.gateHandler.queryConnectorEntry";
                 json_t *msg = json_object();
                 json_object_set(msg, "userName", json_string("tes1"));
                 json_object_set(msg, "password", json_string("123"));
@@ -125,7 +125,7 @@ bool CTestLogin::onEnter()
     addTask([&](void)
             {
                 setTaskName("login error password");
-                const char *route = "gate.gateHandler.queryEntry";
+                const char *route = "gate.gateHandler.queryConnectorEntry";
                 json_t *msg = json_object();
                 json_object_set(msg, "userName", json_string("test13"));
                 json_object_set(msg, "password", json_string("12"));
@@ -148,13 +148,6 @@ bool CTestLogin::onEnter()
 	return true;
 }
 
-
-
-bool CTestLogin::onExit()
-{
-    CPomeloTestBase::onExit();
-	return true;
-}
 
 
 

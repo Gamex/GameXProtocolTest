@@ -16,7 +16,6 @@ class CTestLogin
 {
 public:
     virtual bool onEnter() override;
-    virtual bool onExit() override;
 };
 
 #endif /* defined(__GameXProtocolTest__CTestLogin__) */
