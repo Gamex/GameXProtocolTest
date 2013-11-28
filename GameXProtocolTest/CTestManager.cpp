@@ -34,6 +34,7 @@ bool CTestManager::addCase(ITestCase* cs)
 
 void CTestManager::run()
 {
+
     auto it = m_cases.begin();
     for (; it != m_cases.end(); ++it)
     {
@@ -45,6 +46,7 @@ void CTestManager::run()
         }
         (*it)->onExit();
     }
+
     printf("DONE~~~~!");
 }
 

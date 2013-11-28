@@ -17,42 +17,42 @@ bool CTestConnectorLogin::onEnter()
     if (!CPomeloTestBase::onEnter()) return false;
     
     // --------------- prepare test
-    addTask([&](void)
-            {
-                setTaskName("prepare test");
-                const char *route = "gate.gateHandler.queryConnectorEntry";
-                json_t *msg = json_object();
-                json_object_set(msg, "userName", json_string("autoTest"));
-                json_object_set(msg, "password", json_string("at123"));
-                POMELO->request(route, msg,
-                                [&](Node* node, void* resp)
-                                {
-                                    CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
-                                    json_t* code = json_object_get(ccpomeloresp->docs, "code");
-                                    if (200 != json_integer_value(code))
-                                    {
-                                        setTaskState(TASK_FAIL);
-                                        return;
-                                    }
-                                    
-                                    const char* route = "gate.gateHandler.admin_kickAllOnlineUser";
-                                    json_t *msg = json_object();
-                                    POMELO->request(route, msg,
-                                                    [&](Node* node, void* resp)
-                                                    {
-                                                        CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
-                                                        //                                                        printf(json_dumps(ccpomeloresp->docs, JSON_COMPACT));
-                                                        json_t* code = json_object_get(ccpomeloresp->docs, "code");
-                                                        if (200 != json_integer_value(code))
-                                                        {
-                                                            setTaskState(TASK_FAIL);
-                                                            return;
-                                                        }
-                                                        
-                                                        setTaskState(TASK_OK);
-                                                    });
-                                });
-            });
+//    addTask([&](void)
+//            {
+//                setTaskName("prepare test");
+//                const char *route = "gate.gateHandler.queryConnectorEntry";
+//                json_t *msg = json_object();
+//                json_object_set(msg, "userName", json_string("autoTest"));
+//                json_object_set(msg, "password", json_string("at123"));
+//                POMELO->request(route, msg,
+//                                [&](Node* node, void* resp)
+//                                {
+//                                    CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+//                                    json_t* code = json_object_get(ccpomeloresp->docs, "code");
+//                                    if (200 != json_integer_value(code))
+//                                    {
+//                                        setTaskState(TASK_FAIL);
+//                                        return;
+//                                    }
+//                                    
+//                                    const char* route = "gate.gateHandler.admin_kickAllOnlineUser";
+//                                    json_t *msg = json_object();
+//                                    POMELO->request(route, msg,
+//                                                    [&](Node* node, void* resp)
+//                                                    {
+//                                                        CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+//                                                        //                                                        printf(json_dumps(ccpomeloresp->docs, JSON_COMPACT));
+//                                                        json_t* code = json_object_get(ccpomeloresp->docs, "code");
+//                                                        if (200 != json_integer_value(code))
+//                                                        {
+//                                                            setTaskState(TASK_FAIL);
+//                                                            return;
+//                                                        }
+//                                                        
+//                                                        setTaskState(TASK_OK);
+//                                                    });
+//                                });
+//            });
     
     // --------------- connect to connector
     addTask([&](void)
@@ -66,8 +66,6 @@ bool CTestConnectorLogin::onEnter()
                                 [&](Node* node, void* resp)
                                 {
                                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
-//                                    printf(json_dumps(ccpomeloresp->docs, JSON_COMPACT));
-
                                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
                                     if (200 != json_integer_value(code))
                                     {
@@ -75,18 +73,17 @@ bool CTestConnectorLogin::onEnter()
                                         return;
                                     }
                                     json_t* host = json_object_get(ccpomeloresp->docs, "host");
-                                    json_t* ip = json_object_get(ccpomeloresp->docs, "port");
-                                    json_t* token = json_object_get(ccpomeloresp->docs, "token");
+                                    json_t* port = json_object_get(ccpomeloresp->docs, "port");
                                     
                                     POMELO->stop();
-                                    if (0 != POMELO->connect(json_string_value(host), (int)json_integer_value(ip)))
+                                    if (0 != POMELO->connect(json_string_value(host), (int)json_integer_value(port)))
                                     {
                                         setTaskState(TASK_FAIL);
                                     }
                                     
                                     const char* route = "connector.entryHandler.entry";
                                     json_t *msg = json_object();
-                                    json_object_set(msg, "token", token);
+                                    json_object_set(msg, "userName", json_string("test1"));
                                     json_object_set(msg, "password", json_string("123"));
                                     POMELO->request(route, msg,
                                                     [&](Node* node, void* resp)
@@ -102,6 +99,6 @@ bool CTestConnectorLogin::onEnter()
                                                     });
                                 });
             });
-    
+
 	return true;
 }
