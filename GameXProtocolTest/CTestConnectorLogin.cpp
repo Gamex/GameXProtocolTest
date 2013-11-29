@@ -81,7 +81,7 @@ bool CTestConnectorLogin::onEnter()
                                         setTaskState(TASK_FAIL);
                                     }
                                     
-                                    const char* route = "connector.entryHandler.entry";
+                                    const char* route = "connector.entryHandler.login";
                                     json_t *msg = json_object();
                                     json_object_set(msg, "userName", json_string("test1"));
                                     json_object_set(msg, "password", json_string("123"));
@@ -98,6 +98,29 @@ bool CTestConnectorLogin::onEnter()
                                                         setTaskState(TASK_OK);
                                                     });
                                 });
+            });
+
+    // --------------- get player info
+    addTask([&](void)
+            {
+                setTaskName("get play info");
+                const char* route = "gameplay.gameplayHandler.getPlayerInfo";
+                json_t *msg = json_object();
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                {
+                    CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                    json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                    if (200 != json_integer_value(code))
+                    {
+                        setTaskState(TASK_FAIL);
+                        return;
+                    }
+//                    printf(json_dumps(ccpomeloresp->docs, JSON_COMPACT));
+                    setTaskState(TASK_OK);
+                });
+
             });
 
 	return true;
