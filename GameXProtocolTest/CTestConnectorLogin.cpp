@@ -104,7 +104,7 @@ bool CTestConnectorLogin::onEnter()
     addTask([&](void)
             {
                 setTaskName("get play info");
-                const char* route = "gameplay.gameplayHandler.getPlayerInfo";
+                const char* route = "connector.entryHandler.getPlayerInfo";
                 json_t *msg = json_object();
                 POMELO->request
                 (route, msg,
