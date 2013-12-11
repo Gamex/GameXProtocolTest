@@ -103,7 +103,7 @@ bool CTestConnectorLogin::onEnter()
     // --------------- get player info
     addTask([&](void)
             {
-                setTaskName("get play info");
+                setTaskName("get player info");
                 const char* route = "connector.entryHandler.getPlayerInfo";
                 json_t *msg = json_object();
                 POMELO->request
@@ -123,5 +123,49 @@ bool CTestConnectorLogin::onEnter()
 
             });
 
+//    // --------------- gameplay build info
+//    addTask([&](void)
+//            {
+//                setTaskName("gameplay build");
+//                const char* route = "gameplay.gameplayHandler.build";
+//                json_t *msg = json_object();
+//                POMELO->request
+//                (route, msg,
+//                 [&](Node* node, void* resp)
+//                 {
+//                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+//                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+//                     if (200 != json_integer_value(code))
+//                     {
+//                         setTaskState(TASK_FAIL);
+//                         return;
+//                     }
+//                     setTaskState(TASK_OK);
+//                 });
+//                
+//            });
+    
+    // --------------- gameplay getHomeInfo
+    addTask([&](void)
+            {
+                setTaskName("gameplay getHomeInfo");
+                const char* route = "gameplay.gameplayHandler.getHomeInfo";
+                json_t *msg = json_object();
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 != json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+                     printf("%s\n", json_dumps(ccpomeloresp->docs, JSON_COMPACT));
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
 	return true;
 }
