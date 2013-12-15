@@ -16,6 +16,8 @@ class CTestConnectorLogin
 {
 public:
     virtual bool onEnter() override;
+    
+    int m_bid = -1;
 };
 
 

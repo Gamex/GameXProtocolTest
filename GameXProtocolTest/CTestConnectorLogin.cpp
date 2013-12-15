@@ -122,34 +122,186 @@ bool CTestConnectorLogin::onEnter()
                 });
 
             });
+    
+    
+    // --------------- gameplay clearHomeBuildings
+    addTask([&](void)
+            {
+                setTaskName("gameplay clear all buildings");
+                const char* route = "gameplay.admin.clearHomeBuildings";
+                json_t *msg = json_object();
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 != json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
 
-//    // --------------- gameplay build info
-//    addTask([&](void)
-//            {
-//                setTaskName("gameplay build");
-//                const char* route = "gameplay.gameplayHandler.build";
-//                json_t *msg = json_object();
-//                POMELO->request
-//                (route, msg,
-//                 [&](Node* node, void* resp)
-//                 {
-//                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
-//                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
-//                     if (200 != json_integer_value(code))
-//                     {
-//                         setTaskState(TASK_FAIL);
-//                         return;
-//                     }
-//                     setTaskState(TASK_OK);
-//                 });
-//                
-//            });
+    // --------------- gameplay build
+    addTask([&](void)
+            {
+                setTaskName("gameplay build");
+                const char* route = "gameplay.home.buildInHome";
+                json_t *msg = json_object();
+                json_object_set(msg, "bname", json_string("20101"));
+                json_object_set(msg, "x", json_integer(10));
+                json_object_set(msg, "y", json_integer(20));
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 != json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+                     m_bid = (int)json_integer_value(json_object_get(ccpomeloresp->docs, "bid"));
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
+    
+    // --------------- gameplay build in same place
+    addTask([&](void)
+            {
+                setTaskName("gameplay build in same place");
+                const char* route = "gameplay.home.buildInHome";
+                json_t *msg = json_object();
+                json_object_set(msg, "bname", json_string("20101"));
+                json_object_set(msg, "x", json_integer(10));
+                json_object_set(msg, "y", json_integer(20));
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 == json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
+    
+    // --------------- gameplay build anther
+    addTask([&](void)
+            {
+                setTaskName("gameplay build anther");
+                const char* route = "gameplay.home.buildInHome";
+                json_t *msg = json_object();
+                json_object_set(msg, "bname", json_string("20101"));
+                json_object_set(msg, "x", json_integer(20));
+                json_object_set(msg, "y", json_integer(20));
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 != json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+                     
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
+    
+    // --------------- gameplay move building
+    addTask([&](void)
+            {
+                setTaskName("gameplay move buidling");
+                const char* route = "gameplay.home.moveBuilding";
+                json_t *msg = json_object();
+                json_object_set(msg, "bid", json_integer(m_bid));
+                json_object_set(msg, "x", json_integer(30));
+                json_object_set(msg, "y", json_integer(30));
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 != json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
+    
+    // --------------- gameplay move building to wrong place
+    addTask([&](void)
+            {
+                setTaskName("gameplay move building to wrong place");
+                const char* route = "gameplay.home.moveBuilding";
+                json_t *msg = json_object();
+                json_object_set(msg, "bid", json_integer(m_bid));
+                json_object_set(msg, "x", json_integer(20));
+                json_object_set(msg, "y", json_integer(20));
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 == json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
+
+    // --------------- gameplay delete building
+    addTask([&](void)
+            {
+                setTaskName("gameplay delete buidling");
+                const char* route = "gameplay.home.removeBuilding";
+                json_t *msg = json_object();
+                json_object_set(msg, "bid", json_integer(m_bid));
+                POMELO->request
+                (route, msg,
+                 [&](Node* node, void* resp)
+                 {
+                     CCPomeloReponse* ccpomeloresp = (CCPomeloReponse*)resp;
+                     json_t* code = json_object_get(ccpomeloresp->docs, "code");
+                     if (200 != json_integer_value(code))
+                     {
+                         setTaskState(TASK_FAIL);
+                         return;
+                     }
+                     setTaskState(TASK_OK);
+                 });
+                
+            });
     
     // --------------- gameplay getHomeInfo
     addTask([&](void)
             {
                 setTaskName("gameplay getHomeInfo");
-                const char* route = "gameplay.gameplayHandler.getHomeInfo";
+                const char* route = "gameplay.home.getHomeInfo";
                 json_t *msg = json_object();
                 POMELO->request
                 (route, msg,
@@ -167,5 +319,6 @@ bool CTestConnectorLogin::onEnter()
                  });
                 
             });
+    
 	return true;
 }

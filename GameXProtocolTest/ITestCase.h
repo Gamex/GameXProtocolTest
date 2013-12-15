@@ -36,7 +36,10 @@ public:
     virtual void addTask(TASK_FUNC f);
     virtual TASK_FUNC popTask();
     
-    virtual void setTaskName(const std::string& name) { m_curTaskName = name; }
+    virtual void setTaskName(const std::string& name) {
+        printf("Task begin-----> Name: %s\n", name.c_str());
+        m_curTaskName = name;
+    }
     virtual std::string getTaskName() { return m_curTaskName; }
     virtual void setTaskState(TASK_STATE s){ m_taskState = s; }
     virtual TASK_STATE getTaskState(){ return m_taskState; }
